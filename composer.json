@@ -3,5 +3,7 @@
     "description": "Google CloudEvent Types for PHP",
     "type": "library",
     "license": "MIT",
-    "require": {}
+    "require": {
+        "google/protobuf": "^3.14"
+    }
 }
