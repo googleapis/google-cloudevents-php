@@ -36,18 +36,6 @@ class DocumentEventData extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.events.cloud.firestore.v1.DocumentMask update_mask = 3;</code>
      */
     protected $update_mask = null;
-    /**
-     * The matches from wildcards specified in the event subscription, to the
-     * values of those wildcards in the document name. For example,
-     * a subscription to
-     * `/projects/my_project/databases/(default)/documents/users/{username}`
-     * matching a document with name
-     * `/projects/my_project/databases/(default)/documents/users/marie`
-     * would result in a mapping of `'username': 'marie'`.
-     *
-     * Generated from protobuf field <code>map<string, string> wildcards = 4;</code>
-     */
-    private $wildcards;
 
     /**
      * Constructor.
@@ -64,14 +52,6 @@ class DocumentEventData extends \Google\Protobuf\Internal\Message
      *     @type \Google\Events\Cloud\Firestore\V1\DocumentMask $update_mask
      *           A DocumentMask object that lists changed fields.
      *           This is only populated for update events.
-     *     @type array|\Google\Protobuf\Internal\MapField $wildcards
-     *           The matches from wildcards specified in the event subscription, to the
-     *           values of those wildcards in the document name. For example,
-     *           a subscription to
-     *           `/projects/my_project/databases/(default)/documents/users/{username}`
-     *           matching a document with name
-     *           `/projects/my_project/databases/(default)/documents/users/marie`
-     *           would result in a mapping of `'username': 'marie'`.
      * }
      */
     public function __construct($data = NULL) {
@@ -159,44 +139,6 @@ class DocumentEventData extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Events\Cloud\Firestore\V1\DocumentMask::class);
         $this->update_mask = $var;
-
-        return $this;
-    }
-
-    /**
-     * The matches from wildcards specified in the event subscription, to the
-     * values of those wildcards in the document name. For example,
-     * a subscription to
-     * `/projects/my_project/databases/(default)/documents/users/{username}`
-     * matching a document with name
-     * `/projects/my_project/databases/(default)/documents/users/marie`
-     * would result in a mapping of `'username': 'marie'`.
-     *
-     * Generated from protobuf field <code>map<string, string> wildcards = 4;</code>
-     * @return \Google\Protobuf\Internal\MapField
-     */
-    public function getWildcards()
-    {
-        return $this->wildcards;
-    }
-
-    /**
-     * The matches from wildcards specified in the event subscription, to the
-     * values of those wildcards in the document name. For example,
-     * a subscription to
-     * `/projects/my_project/databases/(default)/documents/users/{username}`
-     * matching a document with name
-     * `/projects/my_project/databases/(default)/documents/users/marie`
-     * would result in a mapping of `'username': 'marie'`.
-     *
-     * Generated from protobuf field <code>map<string, string> wildcards = 4;</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
-     * @return $this
-     */
-    public function setWildcards($var)
-    {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->wildcards = $arr;
 
         return $this;
     }
