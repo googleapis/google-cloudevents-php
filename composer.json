@@ -1,0 +1,7 @@
+{
+    "name": "google/cloudevents",
+    "description": "Google CloudEvent Types for PHP",
+    "type": "library",
+    "license": "MIT",
+    "require": {}
+}
