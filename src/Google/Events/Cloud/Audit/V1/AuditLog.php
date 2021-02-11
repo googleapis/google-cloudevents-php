@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
  * https://github.com/googleapis/googleapis/blob/master/google/cloud/audit/audit_log.proto,
  * but changing service_data from Any to Struct.
  *
- * Generated from protobuf message <code>google.events.cloud.audit.v1.AuditLogData</code>
+ * Generated from protobuf message <code>google.events.cloud.audit.v1.AuditLog</code>
  */
-class AuditLogData extends \Google\Protobuf\Internal\Message
+class AuditLog extends \Google\Protobuf\Internal\Message
 {
     /**
      * The name of the API service performing the operation. For example,
@@ -45,6 +45,24 @@ class AuditLogData extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string resource_name = 11;</code>
      */
     protected $resource_name = '';
+    /**
+     * The resource location information.
+     *
+     * Generated from protobuf field <code>.google.events.cloud.audit.v1.ResourceLocation resource_location = 20;</code>
+     */
+    protected $resource_location = null;
+    /**
+     * The resource's original state before mutation. Present only for
+     * operations which have successfully modified the targeted resource(s).
+     * In general, this field should contain all changed fields, except those
+     * that are already been included in `request`, `response`, `metadata` or
+     * `service_data` fields.
+     * When the JSON object represented here has a proto equivalent,
+     * the proto name will be indicated in the `&#64;type` property.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Struct resource_original_state = 19;</code>
+     */
+    protected $resource_original_state = null;
     /**
      * The number of items returned from a List or Query API method,
      * if applicable.
@@ -102,6 +120,14 @@ class AuditLogData extends \Google\Protobuf\Internal\Message
     protected $response = null;
     /**
      * Other service-specific data about the request, response, and other
+     * information associated with the current audited event.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Struct metadata = 18;</code>
+     */
+    protected $metadata = null;
+    /**
+     * Deprecated, use `metadata` field instead.
+     * Other service-specific data about the request, response, and other
      * activities.
      * When the JSON object represented here has a proto equivalent, the proto
      * name will be indicated in the `&#64;type` property.
@@ -131,6 +157,16 @@ class AuditLogData extends \Google\Protobuf\Internal\Message
      *           For example:
      *               "shelves/SHELF_ID/books"
      *               "shelves/SHELF_ID/books/BOOK_ID"
+     *     @type \Google\Events\Cloud\Audit\V1\ResourceLocation $resource_location
+     *           The resource location information.
+     *     @type \Google\Protobuf\Struct $resource_original_state
+     *           The resource's original state before mutation. Present only for
+     *           operations which have successfully modified the targeted resource(s).
+     *           In general, this field should contain all changed fields, except those
+     *           that are already been included in `request`, `response`, `metadata` or
+     *           `service_data` fields.
+     *           When the JSON object represented here has a proto equivalent,
+     *           the proto name will be indicated in the `&#64;type` property.
      *     @type int|string $num_response_items
      *           The number of items returned from a List or Query API method,
      *           if applicable.
@@ -158,7 +194,11 @@ class AuditLogData extends \Google\Protobuf\Internal\Message
      *           It should never include user-generated data, such as file contents.
      *           When the JSON object represented here has a proto equivalent, the proto
      *           name will be indicated in the `&#64;type` property.
+     *     @type \Google\Protobuf\Struct $metadata
+     *           Other service-specific data about the request, response, and other
+     *           information associated with the current audited event.
      *     @type \Google\Protobuf\Struct $service_data
+     *           Deprecated, use `metadata` field instead.
      *           Other service-specific data about the request, response, and other
      *           activities.
      *           When the JSON object represented here has a proto equivalent, the proto
@@ -262,6 +302,70 @@ class AuditLogData extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->resource_name = $var;
+
+        return $this;
+    }
+
+    /**
+     * The resource location information.
+     *
+     * Generated from protobuf field <code>.google.events.cloud.audit.v1.ResourceLocation resource_location = 20;</code>
+     * @return \Google\Events\Cloud\Audit\V1\ResourceLocation
+     */
+    public function getResourceLocation()
+    {
+        return $this->resource_location;
+    }
+
+    /**
+     * The resource location information.
+     *
+     * Generated from protobuf field <code>.google.events.cloud.audit.v1.ResourceLocation resource_location = 20;</code>
+     * @param \Google\Events\Cloud\Audit\V1\ResourceLocation $var
+     * @return $this
+     */
+    public function setResourceLocation($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Events\Cloud\Audit\V1\ResourceLocation::class);
+        $this->resource_location = $var;
+
+        return $this;
+    }
+
+    /**
+     * The resource's original state before mutation. Present only for
+     * operations which have successfully modified the targeted resource(s).
+     * In general, this field should contain all changed fields, except those
+     * that are already been included in `request`, `response`, `metadata` or
+     * `service_data` fields.
+     * When the JSON object represented here has a proto equivalent,
+     * the proto name will be indicated in the `&#64;type` property.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Struct resource_original_state = 19;</code>
+     * @return \Google\Protobuf\Struct
+     */
+    public function getResourceOriginalState()
+    {
+        return $this->resource_original_state;
+    }
+
+    /**
+     * The resource's original state before mutation. Present only for
+     * operations which have successfully modified the targeted resource(s).
+     * In general, this field should contain all changed fields, except those
+     * that are already been included in `request`, `response`, `metadata` or
+     * `service_data` fields.
+     * When the JSON object represented here has a proto equivalent,
+     * the proto name will be indicated in the `&#64;type` property.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Struct resource_original_state = 19;</code>
+     * @param \Google\Protobuf\Struct $var
+     * @return $this
+     */
+    public function setResourceOriginalState($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
+        $this->resource_original_state = $var;
 
         return $this;
     }
@@ -476,6 +580,35 @@ class AuditLogData extends \Google\Protobuf\Internal\Message
 
     /**
      * Other service-specific data about the request, response, and other
+     * information associated with the current audited event.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Struct metadata = 18;</code>
+     * @return \Google\Protobuf\Struct
+     */
+    public function getMetadata()
+    {
+        return $this->metadata;
+    }
+
+    /**
+     * Other service-specific data about the request, response, and other
+     * information associated with the current audited event.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Struct metadata = 18;</code>
+     * @param \Google\Protobuf\Struct $var
+     * @return $this
+     */
+    public function setMetadata($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
+        $this->metadata = $var;
+
+        return $this;
+    }
+
+    /**
+     * Deprecated, use `metadata` field instead.
+     * Other service-specific data about the request, response, and other
      * activities.
      * When the JSON object represented here has a proto equivalent, the proto
      * name will be indicated in the `&#64;type` property.
@@ -489,6 +622,7 @@ class AuditLogData extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Deprecated, use `metadata` field instead.
      * Other service-specific data about the request, response, and other
      * activities.
      * When the JSON object represented here has a proto equivalent, the proto

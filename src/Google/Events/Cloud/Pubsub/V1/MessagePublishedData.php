@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * The data received in an event when a message is published to a topic.
+ * The event data when a message is published to a topic.
  *
  * Generated from protobuf message <code>google.events.cloud.pubsub.v1.MessagePublishedData</code>
  */
