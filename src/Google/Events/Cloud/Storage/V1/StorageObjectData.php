@@ -200,17 +200,23 @@ class StorageObjectData extends \Google\Protobuf\Internal\Message
      */
     protected $customer_encryption = null;
     /**
-     * The link to this object.
+     * Media download link.
      *
      * Generated from protobuf field <code>string media_link = 100;</code>
      */
     protected $media_link = '';
     /**
-     * Media download link.
+     * The link to this object.
      *
      * Generated from protobuf field <code>string self_link = 101;</code>
      */
     protected $self_link = '';
+    /**
+     * The kind of item this is. For objects, this is always "storage#object".
+     *
+     * Generated from protobuf field <code>string kind = 102;</code>
+     */
+    protected $kind = '';
 
     /**
      * Constructor.
@@ -299,9 +305,11 @@ class StorageObjectData extends \Google\Protobuf\Internal\Message
      *           Metadata of customer-supplied encryption key, if the object is encrypted by
      *           such a key.
      *     @type string $media_link
-     *           The link to this object.
-     *     @type string $self_link
      *           Media download link.
+     *     @type string $self_link
+     *           The link to this object.
+     *     @type string $kind
+     *           The kind of item this is. For objects, this is always "storage#object".
      * }
      */
     public function __construct($data = NULL) {
@@ -1042,7 +1050,7 @@ class StorageObjectData extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The link to this object.
+     * Media download link.
      *
      * Generated from protobuf field <code>string media_link = 100;</code>
      * @return string
@@ -1053,7 +1061,7 @@ class StorageObjectData extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The link to this object.
+     * Media download link.
      *
      * Generated from protobuf field <code>string media_link = 100;</code>
      * @param string $var
@@ -1068,7 +1076,7 @@ class StorageObjectData extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Media download link.
+     * The link to this object.
      *
      * Generated from protobuf field <code>string self_link = 101;</code>
      * @return string
@@ -1079,7 +1087,7 @@ class StorageObjectData extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Media download link.
+     * The link to this object.
      *
      * Generated from protobuf field <code>string self_link = 101;</code>
      * @param string $var
@@ -1089,6 +1097,32 @@ class StorageObjectData extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->self_link = $var;
+
+        return $this;
+    }
+
+    /**
+     * The kind of item this is. For objects, this is always "storage#object".
+     *
+     * Generated from protobuf field <code>string kind = 102;</code>
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+
+    /**
+     * The kind of item this is. For objects, this is always "storage#object".
+     *
+     * Generated from protobuf field <code>string kind = 102;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setKind($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->kind = $var;
 
         return $this;
     }
