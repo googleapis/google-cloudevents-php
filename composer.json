@@ -4,6 +4,6 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "google/protobuf": "^3.14"
+        "google/protobuf": "^4.0"
     }
 }
